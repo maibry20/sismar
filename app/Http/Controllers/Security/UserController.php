@@ -24,6 +24,7 @@ class UserController extends Controller {
             unset($input["id"]);
 //            $user = Auth::User();
 //            $input["users_id"] = 1;
+            $input["password"] = bcrypt($input["password"]);
             $result = User::create($input);
             if ($result) {
                 return response()->json(['success' => true]);
@@ -42,6 +43,7 @@ class UserController extends Controller {
     public function update(Request $request, $id) {
         $profile = User::FindOrFail($id);
         $input = $request->all();
+        $input["password"] = bcrypt($input["password"]);
         $result = $profile->fill($input)->save();
         if ($result) {
             return response()->json(['success' => true]);

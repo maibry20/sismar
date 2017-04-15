@@ -54,15 +54,14 @@ function Device() {
         var frm = $("#frmEdit");
         var data = frm.serialize();
         var url = "/device/" + id + "/edit";
-        $("#modalNew").modal("show");
         $.ajax({
             url: url,
             method: "GET",
             data: data,
             dataType: 'JSON',
             success: function (data) {
-                $("#frm #id").val(data.id);
-                $("#frm #description").val(data.description);
+                $('#myTabs a[href="#management"]').tab('show');
+                $(".input-device").setFields({data: data});
             }
         })
     }

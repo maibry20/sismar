@@ -1,5 +1,4 @@
 {!! Form::open(['id'=>'frm']) !!}
-<input type="hidden" id="id" name="id" class="input-role">
 <br>
 <div class="container-fluid">
     <div class="row">
@@ -19,6 +18,7 @@
                     </div>
                 </div>
                 <div class="panel-body">
+                    <input type="hidden" class="input-device" id="id" name='id'>
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
@@ -29,7 +29,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="email">Caterogia</label>
-                                <select class="form-control" id="category_id" name="category_id">
+                                <select class="form-control input-device" id="category_id" name="category_id">
                                     <option value="0">Seleccione</option>
                                     @foreach($category as $val)
                                     <option value="{{$val->id}}">{{$val->description}}</option>
@@ -44,7 +44,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="email">Marca</label>
-                                <select class="form-control" id="mark_id" name="mark_id">
+                                <select class="form-control input-device" id="mark_id" name="mark_id">
                                     <option value="0">Seleccione</option>
                                     @foreach($mark as $val)
                                     <option value="{{$val->id}}">{{$val->description}}</option>
